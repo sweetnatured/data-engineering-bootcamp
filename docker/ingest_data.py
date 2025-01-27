@@ -20,13 +20,13 @@ def main(params):
 
     os.system(f"wget {url} -O {csv_name}")
 
-    df = pd.read_csv(csv_name, nrows=100)
+    df = pd.read_csv(csv_name)
 
     pd.io.sql.get_schema(df, 'green_taxi_data')
 
-    df.lpep_pickup_datetime = pd.to_datetime(df.lpep_pickup_datetime)
-
-    df.lpep_dropoff_datetime = pd.to_datetime(df.lpep_dropoff_datetime)
+    # df.lpep_pickup_datetime = pd.to_datetime(df.lpep_pickup_datetime)
+    #
+    # df.lpep_dropoff_datetime = pd.to_datetime(df.lpep_dropoff_datetime)
 
     pd.io.sql.get_schema(df, 'green_taxi_data')
 
